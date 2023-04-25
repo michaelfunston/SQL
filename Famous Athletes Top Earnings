@@ -1,0 +1,46 @@
+Created a table of famous athletes, their age and what sport they play.
+Created a table of famous athletes with their total earnings, field earnings and off field earnings.
+Joined both tables to make a readable list of athletes total earnings, field earnings and off field earnings.
+______________________________________________________________________________________________________________
+
+CREATE TABLE athletes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    sport TEXT);
+    
+INSERT INTO athletes (fullname, age, sport) VALUES ('Lionel Messi', 35, 'Soccer');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Tiger Woods', 47, 'Golf');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Roger Federer', 41, 'Tennis');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Canelo Alverez', 32, 'Boxing');
+INSERT INTO athletes (fullname, age, sport) VALUES ('LeBron James', 38, 'Basketball');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Stephen Curry', 35, 'Basketball');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Matthew Stafford', 35, 'Football');
+INSERT INTO athletes (fullname, age, sport) VALUES ('Aaron Rodgers', 39, 'Football');
+
+
+CREATE table wealth (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    athlete_id INTEGER,
+    total_earnings TEXT,
+    field_earnings TEXT,
+    off_field_earnings TEXT);
+
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (1, "130 M", "75 M", "55 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (2, "68 M", "40 K", "68 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (3, "90.7 M", "700 K", "90 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (4, "90 M", "85 M", "5 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (5, "121.2 M", "41.2 M", "80 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (6, "92.8 M", "45.8 M", "47 M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (7, "72.3 M", "69.8 M", "2.5M" );
+INSERT INTO wealth (athlete_id, total_earnings, field_earnings, off_field_earnings) VALUES (8, "68 M", "57 M", "11 M" );
+SELECT * FROM athletes;
+
+
+
+/*Return total earnings, field earnings and off field earnings for each athlete*/
+
+SELECT athletes.fullname, wealth.total_earnings, wealth.field_earnings, wealth.off_field_earnings
+FROM athletes
+JOIN wealth
+ON athletes.id = wealth.athlete_id;
