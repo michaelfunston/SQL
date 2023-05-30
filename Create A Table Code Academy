@@ -1,0 +1,45 @@
+In this SQL project, I created a table using the skills 
+I learned on code academy.
+
+I did the following:
+
+1. Created A Table.
+2. Inserted values. 
+3. Updated the table.
+4. Alter the table.
+5. Deleted from the table.
+_________________________________________________________
+
+CREATE TABLE friends (id INTEGER PRIMARY KEY,
+name TEXT, birthday DATE);
+
+INSERT INTO friends (id, name, birthday)
+VALUES (1, 'Ororo Munroe', '1940-05-30');
+
+SELECT * 
+FROM friends;
+
+INSERT INTO friends (id, name, birthday)
+VALUES (2, 'Austin Crouch', '1994-08-04');
+
+INSERT INTO friends (id, name, birthday)
+VALUES (3, 'Barry Rich', '1994-02-11');
+
+UPDATE friends
+SET name = 'Storm'
+WHERE id =1;
+
+SELECT * FROM friends;
+
+ALTER TABLE friends
+ADD COLUMN email TEXT;
+
+UPDATE friends
+SET email = 'storm@codeacademy.com'
+WHERE id = 1;
+
+DELETE FROM friends
+WHERE id = 1; 
+
+SELECT *
+FROM friends;
